@@ -71,6 +71,10 @@ export default async function decorate(block) {
 
   async function loadPage() {
     const resp = await fetch(`/query-index.json?limit=${pageSize}&offset=${offset}`);
+    if (!resp.ok) {
+      loadMoreButton.remove();
+      return;
+    }
     const json = await resp.json();
     json.data
       .filter((entry) => entry.path.startsWith(pathPrefix))
