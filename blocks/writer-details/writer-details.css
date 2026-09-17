@@ -1,0 +1,45 @@
+.writer-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.writer-details-avatar {
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.writer-details-avatar img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.writer-details-byline,
+.writer-details-meta {
+  margin: 0;
+}
+
+.writer-details-name {
+  font-weight: 600;
+}
+
+.writer-details-meta {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+}
+
+@media (width >= 600px) {
+  .writer-details {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (width >= 900px) {
+  .writer-details-avatar {
+    width: 80px;
+  }
+}
