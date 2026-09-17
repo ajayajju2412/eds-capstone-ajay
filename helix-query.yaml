@@ -1,0 +1,25 @@
+version: 1
+indices:
+  magazine:
+    include:
+      - /magazine/**
+    target: /query-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(lastModified, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+      path:
+        select: none
+        value: path
