@@ -1,0 +1,73 @@
+/* Accordion block — collapsible Q&A
+   Matches wknd-trendsetters.site: thin dividers, Instrument Sans labels,
+   a "+" toggle that becomes "−" when open. Typography/colors inherit from
+   the project design system (brand tokens in styles/styles.css). */
+
+.accordion .accordion-item {
+  border-top: 1px solid #e8e8e8;
+}
+
+.accordion .accordion-item:last-of-type {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.accordion .accordion-item-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px 48px 20px 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-color);
+  cursor: pointer;
+  list-style: none;
+}
+
+/* remove native disclosure marker */
+.accordion .accordion-item-label::-webkit-details-marker {
+  display: none;
+}
+
+.accordion .accordion-item-label:hover {
+  color: var(--text-secondary-color);
+}
+
+/* "+" toggle icon built from two bars */
+.accordion .accordion-item-label::before,
+.accordion .accordion-item-label::after {
+  content: '';
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 16px;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+
+.accordion .accordion-item-label::after {
+  transform: rotate(90deg);
+}
+
+/* open state: rotate the vertical bar away so a "−" remains */
+.accordion .accordion-item[open] .accordion-item-label::after {
+  transform: rotate(0deg);
+}
+
+.accordion .accordion-item-body {
+  padding: 0 48px 20px 0;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary-color);
+}
+
+.accordion .accordion-item-body p {
+  margin: 0 0 12px;
+}
+
+.accordion .accordion-item-body :last-child {
+  margin-bottom: 0;
+}

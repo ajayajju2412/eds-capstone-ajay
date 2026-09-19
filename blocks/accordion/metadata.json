@@ -1,0 +1,11 @@
+{
+  "variantName": "accordion",
+  "baseBlock": "accordion",
+  "templateSource": "block-collection/accordion",
+  "visualCharacteristics": "Vertical list of collapsible Q&A rows separated by thin 1px dividers. Each row shows a bold question label with a '+' toggle icon on the right that becomes '−' when expanded, revealing the answer body below.",
+  "contentPattern": "Each row has two cells: [ question | answer ]. Question is the summary label; answer is the collapsible body.",
+  "usage": "FAQ and Q&A sections. Used by faq-page and the homepage-landing FAQ section.",
+  "canonicalModel": "standalone",
+  "options": [],
+  "memberVariantIds": ["accordion"]
+}
