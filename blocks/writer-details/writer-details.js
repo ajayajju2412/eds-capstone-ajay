@@ -1,55 +1,86 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
-function splitNameAndMeta(cell) {
-  const paragraphs = [...cell.children].filter((el) => el.tagName === 'P');
-  if (paragraphs.length >= 2) {
-    const name = paragraphs[0].textContent.trim();
-    const meta = paragraphs.slice(1).map((p) => p.textContent.trim()).join(' ');
-    return [name, meta];
-  }
-  const [firstLine, ...restLines] = cell.innerHTML.split(/<br\s*\/?>/i);
-  if (restLines.length > 0) {
-    const tmp = document.createElement('div');
-    tmp.innerHTML = firstLine;
-    const name = tmp.textContent.trim();
-    tmp.innerHTML = restLines.join(' ');
-    const meta = tmp.textContent.trim();
-    return [name, meta];
-  }
-  return [cell.textContent.trim(), ''];
-}
-
+/**
+ * writer-details block
+ *
+ * Authored content is a single row of plain cells. The first cell is an
+ * optional avatar/photo; the remaining cells are text:
+ *   [ photo? | name | date | read time | ... ]
+ * Any cell may be omitted by the author:
+ *   - Empty/absent photo cell  -> no avatar rendered
+ *   - Omitted date/read time   -> those meta items simply don't appear
+ *
+ * Renders an article byline:
+ *   [avatar]  By {name}
+ *             {date} • {read time} • ...
+ */
 export default function decorate(block) {
   const row = block.children[0];
-  const [photoCol, prefixCol, nameCol] = row.children;
+  if (!row) return;
 
-  const img = photoCol.querySelector('img');
-  const avatar = document.createElement('div');
-  avatar.className = 'writer-details-avatar';
-  if (img) avatar.append(createOptimizedPicture(img.src, img.alt, false, [{ width: '150' }]));
+  const allCells = [...row.children];
 
-  const prefix = prefixCol.textContent.trim();
-  const [name, meta] = splitNameAndMeta(nameCol);
+  // The first cell is the (optional) avatar slot — treat it as an avatar
+  // only when it actually contains an image. Otherwise it's text content.
+  const firstCell = allCells[0];
+  const img = firstCell ? firstCell.querySelector('img') : null;
+  const textCells = img ? allCells.slice(1) : allCells;
 
+  const cells = textCells
+    .map((cell) => cell.textContent.trim())
+    .filter(Boolean);
+
+  const [name, ...meta] = cells;
+
+  block.replaceChildren();
+
+  // Optional avatar
+  if (img) {
+    const avatar = document.createElement('div');
+    avatar.className = 'writer-details-avatar';
+    avatar.append(createOptimizedPicture(img.src, img.alt, false, [{ width: '150' }]));
+    block.append(avatar);
+  }
+
+  // Text column (byline + meta) stacks next to the avatar
   const text = document.createElement('div');
   text.className = 'writer-details-text';
 
-  const byline = document.createElement('p');
-  byline.className = 'writer-details-byline';
-  byline.append(`${prefix} `);
-  const nameSpan = document.createElement('span');
-  nameSpan.className = 'writer-details-name';
-  nameSpan.textContent = name;
-  byline.append(nameSpan);
+  if (name) {
+    const byline = document.createElement('p');
+    byline.className = 'writer-details-byline';
 
-  text.append(byline);
+    const label = document.createElement('span');
+    label.className = 'writer-details-label';
+    label.textContent = 'By';
 
-  if (meta) {
+    const nameEl = document.createElement('span');
+    nameEl.className = 'writer-details-name';
+    nameEl.textContent = name;
+
+    byline.append(label, nameEl);
+    text.append(byline);
+  }
+
+  if (meta.length) {
     const metaEl = document.createElement('p');
     metaEl.className = 'writer-details-meta';
-    metaEl.textContent = meta;
+
+    meta.forEach((value, i) => {
+      if (i > 0) {
+        const sep = document.createElement('span');
+        sep.className = 'writer-details-separator';
+        sep.setAttribute('aria-hidden', 'true');
+        sep.textContent = '•';
+        metaEl.append(sep);
+      }
+      const item = document.createElement('span');
+      item.textContent = value;
+      metaEl.append(item);
+    });
+
     text.append(metaEl);
   }
 
-  block.replaceChildren(avatar, text);
+  block.append(text);
 }

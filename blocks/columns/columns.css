@@ -1,28 +1,46 @@
+/* columns block — design migrated from wknd-trendsetters.site
+   Source: two-column image + text section (equal columns, centered, rounded cover image) */
+
+/* Mobile-first: cells stack in a single column */
 .columns > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns img {
-  width: 100%;
+  gap: 24px;
 }
 
 .columns > div > div {
   order: 1;
 }
 
+/* image-only cell (marked by columns.js) renders first on mobile */
 .columns > div > .columns-img-col {
   order: 0;
 }
 
-.columns > div > .columns-img-col img {
+/* image treatment — rounded 3:2 cover image */
+.columns img {
   display: block;
+  width: 100%;
+  border-radius: 20px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
 }
 
+/* headings inside the block */
+.columns h2 {
+  font-family: var(--heading-font-family);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 44px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+/* Desktop: equal side-by-side columns, vertically centered */
 @media (width >= 900px) {
   .columns > div {
+    flex-direction: row;
     align-items: center;
-    flex-direction: unset;
     gap: 24px;
   }
 

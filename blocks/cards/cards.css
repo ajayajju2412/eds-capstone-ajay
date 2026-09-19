@@ -1,27 +1,69 @@
+/* Block: cards — design migrated from wknd-trendsetters.site "Latest articles" grid */
+
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
-}
-
-.cards .cards-card-body {
-  margin: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: transparent;
 }
 
 .cards .cards-card-image {
   line-height: 0;
 }
 
-.cards > ul > li img {
+.cards .cards-card-image img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1.6 / 1;
   object-fit: cover;
+}
+
+.cards .cards-card-body {
+  padding: 24px;
+}
+
+.cards .cards-card-body > * {
+  margin: 0;
+}
+
+/* card title — first strong/paragraph rendered like source h3 */
+.cards .cards-card-body p:first-child strong,
+.cards .cards-card-body h3 {
+  display: block;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 19.8px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* card description — secondary body text */
+.cards .cards-card-body p {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary-color);
+  margin: 12px 0 0;
+}
+
+.cards .cards-card-body p:first-child {
+  margin-top: 0;
+}
+
+@media (width >= 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
 }
