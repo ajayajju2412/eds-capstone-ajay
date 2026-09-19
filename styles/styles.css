@@ -31,16 +31,28 @@
   --body-font-size-s: 14px;
   --body-font-size-xs: 12px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 32px;
-  --heading-font-size-xl: 32px;
-  --heading-font-size-l: 24px;
+  /* heading sizes — mobile-first (desktop scale in media query below) */
+  --heading-font-size-xxl: 24px;
+  --heading-font-size-xl: 24px;
+  --heading-font-size-l: 22px;
   --heading-font-size-m: 20px;
   --heading-font-size-s: 18px;
   --heading-font-size-xs: 16px;
 
   /* nav height */
   --nav-height: 64px;
+}
+
+@media (width >= 900px) {
+  :root {
+    /* heading sizes — desktop scale (matches wknd-trendsetters.site) */
+    --heading-font-size-xxl: 40px;
+    --heading-font-size-xl: 40px;
+    --heading-font-size-l: 32px;
+    --heading-font-size-m: 24px;
+    --heading-font-size-s: 20px;
+    --heading-font-size-xs: 18px;
+  }
 }
 
 body {
@@ -89,19 +101,20 @@ h6 {
 
 h1 {
   font-size: var(--heading-font-size-xxl);
-  line-height: 35.2px;
-  letter-spacing: -0.64px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: var(--heading-font-size-xl);
-  line-height: 35.2px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   margin: 40px 0 16px;
 }
 
 h3 {
   font-size: var(--heading-font-size-l);
-  line-height: 26.4px;
+  line-height: 1.1;
   margin: 32px 0 12px;
 }
 
@@ -144,6 +157,46 @@ blockquote {
   margin: 32px 0;
   padding: 0 0 0 24px;
   border-left: 4px solid var(--accent-color);
+}
+
+/* Native tables — any authored table gets a two-column spec layout for free.
+   Bold labels in the first column, accent-topped header, row dividers. */
+table {
+  width: 100%;
+  margin: 32px 0;
+  border-collapse: collapse;
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+table th,
+table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* Header row: accent underline separates it from the body */
+table thead th {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: var(--body-font-size-s);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* First column reads as the label: narrow and bold */
+table td:first-child {
+  width: 30%;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Last row has no divider */
+table tr:last-child td {
+  border-bottom: none;
 }
 
 code,
@@ -359,4 +412,49 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/* ===========================================================================
+   Blog article template (body.blog-article — set by scripts.js for /blog/*)
+   Matches the article layout on wknd-trendsetters.site
+   =========================================================================== */
+
+/* Constrain the article to a comfortable reading measure (~720px) */
+body.blog-article main > .section > div {
+  max-width: 720px;
+}
+
+/* Hero section: generous vertical rhythm around the lead image + title */
+body.blog-article main > .section:first-of-type {
+  margin-top: 0;
+  padding: 40px 0;
+}
+
+/* Rounded, 3:2 cover image in the hero */
+body.blog-article main > .section:first-of-type picture img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Category tag pill (e.g. "Casual Cool") — last paragraph of the hero */
+body.blog-article main > .section:first-of-type > div > p:last-of-type {
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+@media (width >= 900px) {
+  body.blog-article main > .section:first-of-type {
+    padding: 128px 0;
+  }
 }

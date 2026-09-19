@@ -164,6 +164,10 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
+    // Path-based template hook: blog article pages live under /blog/
+    if (window.location.pathname.startsWith('/blog/')) {
+      document.body.classList.add('blog-article');
+    }
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
