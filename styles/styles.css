@@ -159,6 +159,46 @@ blockquote {
   border-left: 4px solid var(--accent-color);
 }
 
+/* Native tables — any authored table gets a two-column spec layout for free.
+   Bold labels in the first column, accent-topped header, row dividers. */
+table {
+  width: 100%;
+  margin: 32px 0;
+  border-collapse: collapse;
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+table th,
+table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* Header row: accent underline separates it from the body */
+table thead th {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: var(--body-font-size-s);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* First column reads as the label: narrow and bold */
+table td:first-child {
+  width: 30%;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Last row has no divider */
+table tr:last-child td {
+  border-bottom: none;
+}
+
 code,
 pre {
   font-size: var(--body-font-size-s);
@@ -415,6 +455,6 @@ body.blog-article main > .section:first-of-type > div > p:last-of-type {
 
 @media (width >= 900px) {
   body.blog-article main > .section:first-of-type {
-    padding: 80px 0;
+    padding: 128px 0;
   }
 }
