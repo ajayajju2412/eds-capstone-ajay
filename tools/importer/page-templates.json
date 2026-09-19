@@ -1,0 +1,417 @@
+{
+  "templates": [
+    {
+      "name": "fashion-trends-of-the-season",
+      "urls": [
+        "https://wknd-trendsetters.site/",
+        "https://wknd-trendsetters.site/fashion-trends-of-the-season",
+        "https://wknd-trendsetters.site/fashion-trends-young-adults"
+      ],
+      "representativeUrl": "https://wknd-trendsetters.site/",
+      "description": "To be named in naming step",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            "#main-content > header.section.secondary-section",
+            ".section.inverse-section"
+          ]
+        },
+        {
+          "name": "columns",
+          "instances": [
+            "#main-content > section.section:nth-of-type(1)"
+          ]
+        },
+        {
+          "name": "cards",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(2)"
+          ]
+        },
+        {
+          "name": "tabs",
+          "instances": [
+            ".tabs-wrapper",
+            "[role=tablist]"
+          ]
+        },
+        {
+          "name": "article-list",
+          "instances": [
+            "#main-content > section.section.secondary-section:nth-of-type(4)"
+          ]
+        },
+        {
+          "name": "accordion",
+          "instances": [
+            "#main-content > section.section:nth-of-type(5)"
+          ]
+        }
+      ],
+      "urlPattern": "/*",
+      "sections": [
+        {
+          "id": "s0",
+          "name": "hero-intro",
+          "selector": [
+            "#main-content > header.section.secondary-section"
+          ],
+          "style": null,
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s1",
+          "name": "featured-teaser",
+          "selector": [
+            "#main-content > section.section:nth-of-type(1)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s2",
+          "name": "snapshot-gallery",
+          "selector": [
+            "#main-content > section.section.secondary-section:nth-of-type(2)"
+          ],
+          "style": "secondary",
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            "h2",
+            "p"
+          ]
+        },
+        {
+          "id": "s3",
+          "name": "testimonial-tabs",
+          "selector": [
+            "#main-content > section.section:nth-of-type(3)"
+          ],
+          "style": null,
+          "blocks": [
+            "tabs"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s4",
+          "name": "latest-articles",
+          "selector": [
+            "#main-content > section.section.secondary-section:nth-of-type(4)"
+          ],
+          "style": "secondary",
+          "blocks": [
+            "article-list"
+          ],
+          "defaultContent": [
+            "h2",
+            "p"
+          ]
+        },
+        {
+          "id": "s5",
+          "name": "faq",
+          "selector": [
+            "#main-content > section.section:nth-of-type(5)"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": [
+            "h2",
+            "p"
+          ]
+        },
+        {
+          "id": "s6",
+          "name": "cta-banner",
+          "selector": [
+            "#main-content > section.section.inverse-section"
+          ],
+          "style": "dark",
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        }
+      ]
+    },
+    {
+      "name": "blog",
+      "urls": [
+        "https://wknd-trendsetters.site/blog",
+        "https://wknd-trendsetters.site/case-studies",
+        "https://wknd-trendsetters.site/fashion-insights"
+      ],
+      "representativeUrl": "https://wknd-trendsetters.site/blog",
+      "description": "To be named in naming step",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            "#main-content > header.section.secondary-section"
+          ]
+        },
+        {
+          "name": "columns",
+          "instances": [
+            "#main-content > section.section:nth-of-type(1)"
+          ]
+        },
+        {
+          "name": "article-list",
+          "instances": [
+            "#articles"
+          ]
+        }
+      ],
+      "urlPattern": "/*",
+      "sections": [
+        {
+          "id": "s0",
+          "name": "hero",
+          "selector": [
+            "#main-content > header.section.secondary-section"
+          ],
+          "style": null,
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s1",
+          "name": "featured",
+          "selector": [
+            "#main-content > section.section:nth-of-type(1)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s2",
+          "name": "articles",
+          "selector": [
+            "#articles"
+          ],
+          "style": "secondary",
+          "blocks": [
+            "article-list"
+          ],
+          "defaultContent": [
+            "h2"
+          ]
+        },
+        {
+          "id": "s3",
+          "name": "subscribe-cta",
+          "selector": [
+            "#main-content > section.section.accent-section"
+          ],
+          "style": "accent",
+          "blocks": [],
+          "defaultContent": [
+            "h2",
+            "p"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "blog-2",
+      "urls": [
+        "https://wknd-trendsetters.site/blog/ace-pro-court-polo",
+        "https://wknd-trendsetters.site/blog/fashion-blog-post",
+        "https://wknd-trendsetters.site/blog/fashion-trends-young-culture",
+        "https://wknd-trendsetters.site/blog/fashion-trends-young-style",
+        "https://wknd-trendsetters.site/blog/flip-flop-summer-style",
+        "https://wknd-trendsetters.site/blog/latest-trends-young-casual-fashion",
+        "https://wknd-trendsetters.site/blog/street-style-trends"
+      ],
+      "representativeUrl": "https://wknd-trendsetters.site/blog/ace-pro-court-polo",
+      "description": "To be named in naming step",
+      "blocks": [],
+      "urlPattern": "/blog/*"
+    },
+    {
+      "name": "faq",
+      "urls": [
+        "https://wknd-trendsetters.site/faq"
+      ],
+      "representativeUrl": "https://wknd-trendsetters.site/faq",
+      "description": "To be named in naming step",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            "#main-content > header.section.secondary-section"
+          ]
+        },
+        {
+          "name": "accordion",
+          "instances": [
+            "#main-content > section.section:nth-of-type(1)",
+            "[role=group]"
+          ]
+        },
+        {
+          "name": "columns",
+          "instances": [
+            "#main-content > section.section.secondary-section"
+          ]
+        }
+      ],
+      "urlPattern": "/*",
+      "sections": [
+        {
+          "id": "s0",
+          "name": "hero",
+          "selector": [
+            "#main-content > header.section.secondary-section"
+          ],
+          "style": "secondary",
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s1",
+          "name": "faq-accordion",
+          "selector": [
+            "#main-content > section.section:nth-of-type(1)"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s2",
+          "name": "connect",
+          "selector": [
+            "#main-content > section.section.secondary-section"
+          ],
+          "style": "secondary",
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s3",
+          "name": "join-cta",
+          "selector": [
+            "#main-content > section.section.accent-section"
+          ],
+          "style": "accent",
+          "blocks": [],
+          "defaultContent": [
+            "h2",
+            "p"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fashion-trends-young-adults-casual-sport",
+      "urls": [
+        "https://wknd-trendsetters.site/fashion-trends-young-adults-casual-sport"
+      ],
+      "representativeUrl": "https://wknd-trendsetters.site/fashion-trends-young-adults-casual-sport",
+      "description": "To be named in naming step",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            "#main-content > header.section.secondary-section"
+          ]
+        },
+        {
+          "name": "cards",
+          "instances": [
+            "#trends"
+          ]
+        },
+        {
+          "name": "columns",
+          "instances": [
+            "#main-content > section.section.secondary-section"
+          ]
+        }
+      ],
+      "urlPattern": "/*",
+      "sections": [
+        {
+          "id": "s0",
+          "name": "hero",
+          "selector": [
+            "#main-content > header.section.secondary-section"
+          ],
+          "style": null,
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s1",
+          "name": "trends-grid",
+          "selector": [
+            "#trends"
+          ],
+          "style": null,
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            "h2",
+            "p"
+          ]
+        },
+        {
+          "id": "s2",
+          "name": "featured",
+          "selector": [
+            "#main-content > section.section.secondary-section"
+          ],
+          "style": null,
+          "blocks": [
+            "columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s3",
+          "name": "subscribe-cta",
+          "selector": [
+            "#main-content > section.section.accent-section"
+          ],
+          "style": "accent",
+          "blocks": [],
+          "defaultContent": [
+            "h2",
+            "p"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "projectType": "da"
+  }
+}

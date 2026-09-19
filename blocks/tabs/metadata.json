@@ -1,0 +1,11 @@
+{
+  "variantName": "tabs",
+  "baseBlock": "tabs",
+  "templateSource": "block-collection/tabs",
+  "visualCharacteristics": "Horizontal row of tab buttons above a content panel. The selected tab is marked with a brand-accent underline; clicking a tab switches the visible panel. One panel is shown at a time.",
+  "contentPattern": "Each row has two cells: [ tab label | panel content ]. The first cell becomes the tab button; the row becomes the associated panel.",
+  "usage": "Switchable panels such as testimonial sets or grouped content. Used by the homepage-landing testimonial section.",
+  "canonicalModel": "standalone",
+  "options": [],
+  "memberVariantIds": ["tabs"]
+}

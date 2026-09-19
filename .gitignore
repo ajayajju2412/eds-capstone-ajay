@@ -11,3 +11,7 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# EDS importer generated artifacts (regenerable)
+tools/importer/*.bundle.js
+tools/importer/reports/*.xlsx

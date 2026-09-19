@@ -1,0 +1,54 @@
+/* Tabs block — switchable panels
+   Structural layout; typography/colors inherit from the project design
+   system (brand tokens in styles/styles.css). Selected tab uses the brand
+   accent underline, echoing the site's tab treatment. */
+
+.tabs .tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+  margin-bottom: 24px;
+}
+
+.tabs .tabs-list button {
+  flex: 0 0 max-content;
+  margin: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 8px 4px;
+  background-color: transparent;
+  color: var(--text-secondary-color);
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tabs .tabs-list button p {
+  margin: 0;
+}
+
+.tabs .tabs-list button:hover {
+  color: var(--text-color);
+}
+
+.tabs .tabs-list button[aria-selected='true'] {
+  color: var(--text-color);
+  border-bottom-color: var(--accent-color);
+  cursor: initial;
+}
+
+.tabs .tabs-panel {
+  padding: 8px 0 0;
+  overflow: auto;
+}
+
+.tabs .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
