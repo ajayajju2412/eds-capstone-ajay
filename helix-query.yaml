@@ -2,7 +2,7 @@ version: 1
 indices:
   magazine:
     include:
-      - /magazine/**
+      - /blog/**
     target: /query-index.json
     properties:
       title:

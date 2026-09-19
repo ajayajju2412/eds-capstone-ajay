@@ -52,7 +52,7 @@ function renderCard(entry) {
 
 export default async function decorate(block) {
   const cfg = readBlockConfig(block);
-  const pathPrefix = cfg['path-prefix'] || '/magazine/';
+  const pathPrefix = cfg['path-prefix'] || '/blog/';
   const pageSize = parseInt(cfg.limit, 10) || 12;
 
   block.textContent = '';
