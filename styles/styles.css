@@ -430,6 +430,41 @@ main .section.dark a:any-link {
   color: #fff;
 }
 
+/* Standalone CTA links (a paragraph whose only child is a link) render as the
+   brand black pill, matching wknd-trendsetters.site. Blog-article prose links
+   are inline (never a sole-child link) so they are unaffected. */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section p > a:only-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--text-color);
+  border-radius: 9999px;
+  padding: 12px 24px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+main .section p > a:only-child:hover {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* On dark sections the standalone CTA pill inverts (white pill, black text) */
+main .section.dark p > a:only-child {
+  border-color: var(--background-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 /* Full-bleed colored bands carry the source's generous 128px vertical rhythm */
 main .section.light,
 main .section.highlight,
