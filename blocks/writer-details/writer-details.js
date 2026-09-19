@@ -1,25 +1,50 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+
 /**
  * writer-details block
  *
- * Authored content is a single row of plain cells:
- *   [ author name | date | read time ]
- * (some cells may be omitted by the author).
+ * Authored content is a single row of plain cells. The first cell is an
+ * optional avatar/photo; the remaining cells are text:
+ *   [ photo? | name | date | read time | ... ]
+ * Any cell may be omitted by the author:
+ *   - Empty/absent photo cell  -> no avatar rendered
+ *   - Omitted date/read time   -> those meta items simply don't appear
  *
  * Renders an article byline:
- *   Line 1:  By {name}
- *   Line 2:  {date} • {read time}
+ *   [avatar]  By {name}
+ *             {date} • {read time} • ...
  */
 export default function decorate(block) {
   const row = block.children[0];
   if (!row) return;
 
-  const cells = [...row.children]
+  const allCells = [...row.children];
+
+  // The first cell is the (optional) avatar slot — treat it as an avatar
+  // only when it actually contains an image. Otherwise it's text content.
+  const firstCell = allCells[0];
+  const img = firstCell ? firstCell.querySelector('img') : null;
+  const textCells = img ? allCells.slice(1) : allCells;
+
+  const cells = textCells
     .map((cell) => cell.textContent.trim())
     .filter(Boolean);
 
   const [name, ...meta] = cells;
 
   block.replaceChildren();
+
+  // Optional avatar
+  if (img) {
+    const avatar = document.createElement('div');
+    avatar.className = 'writer-details-avatar';
+    avatar.append(createOptimizedPicture(img.src, img.alt, false, [{ width: '150' }]));
+    block.append(avatar);
+  }
+
+  // Text column (byline + meta) stacks next to the avatar
+  const text = document.createElement('div');
+  text.className = 'writer-details-text';
 
   if (name) {
     const byline = document.createElement('p');
@@ -34,7 +59,7 @@ export default function decorate(block) {
     nameEl.textContent = name;
 
     byline.append(label, nameEl);
-    block.append(byline);
+    text.append(byline);
   }
 
   if (meta.length) {
@@ -54,6 +79,8 @@ export default function decorate(block) {
       metaEl.append(item);
     });
 
-    block.append(metaEl);
+    text.append(metaEl);
   }
+
+  block.append(text);
 }
