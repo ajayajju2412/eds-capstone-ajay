@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://wknd-trendsetters.site/case-studies",
+  "path": "case-studies",
+  "timestamp": "2026-09-19T17:38:10.474Z",
+  "title": "Inspiring Case Studies | Fashion Blog",
+  "template": "blog",
+  "blocks": [
+    "hero",
+    "columns"
+  ]
+}
