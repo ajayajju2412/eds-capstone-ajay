@@ -1,45 +1,36 @@
+/* Block: writer-details — article byline (author, date, read time) */
+
+/* Values extracted from source computed styles at wknd-trendsetters.site */
+
 .writer-details {
+  margin: 16px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 22.4px;
+  color: var(--text-secondary-color);
+}
+
+.writer-details .writer-details-byline,
+.writer-details .writer-details-meta {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: flex-start;
-}
-
-.writer-details-avatar {
-  width: 64px;
-  flex-shrink: 0;
-}
-
-.writer-details-avatar img {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.writer-details-byline,
-.writer-details-meta {
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 4px;
   margin: 0;
+  font-size: 14px;
+  line-height: 22.4px;
 }
 
-.writer-details-name {
-  font-weight: 600;
+.writer-details .writer-details-meta {
+  margin-top: 8px;
 }
 
-.writer-details-meta {
-  color: var(--dark-color);
-  font-size: var(--body-font-size-s);
+.writer-details .writer-details-label,
+.writer-details .writer-details-separator,
+.writer-details .writer-details-meta span {
+  color: var(--text-secondary-color);
 }
 
-@media (width >= 600px) {
-  .writer-details {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-@media (width >= 900px) {
-  .writer-details-avatar {
-    width: 80px;
-  }
+.writer-details .writer-details-name {
+  color: var(--text-color);
 }
