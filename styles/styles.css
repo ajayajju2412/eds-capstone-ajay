@@ -10,12 +10,17 @@
  * governing permissions and limitations under the License.
  */
 
-@import url('brand.css');
-
 :root {
-  /* colors — brand tokens defined in brand.css */
+  /* colors */
+  --background-color: #fff;
   --light-color: #f8f8f8;
   --dark-color: #131313;
+  --text-color: #000;
+  --text-secondary-color: #666;
+  --quote-text-color: #404040;
+  --accent-color: #f4fe8b;
+  --link-color: #000;
+  --link-hover-color: #666;
 
   /* fonts */
   --body-font-family: "Instrument Sans", sans-serif;

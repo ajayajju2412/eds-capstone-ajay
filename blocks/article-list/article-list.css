@@ -43,6 +43,11 @@
   margin: 24px 24px 12px;
 }
 
+.article-list-meta > * {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
 .article-list-list > li h3 {
   margin: 0 24px;
   font-family: var(--heading-font-family);
