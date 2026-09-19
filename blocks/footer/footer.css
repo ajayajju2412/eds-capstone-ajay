@@ -1,20 +1,92 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: #000;
+  color: #fff;
+  font-size: var(--body-font-size-s);
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 48px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* Brand + social row */
+footer .footer a:any-link {
+  color: #fff;
+}
+
+footer .footer a:hover {
+  color: var(--text-secondary-color);
+}
+
+/* Link columns */
+footer .footer h2 {
+  margin: 0 0 12px;
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-secondary-color);
+}
+
+footer .footer ul {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+footer .footer li {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+footer .footer li a:any-link {
+  color: var(--text-secondary-color);
+}
+
+footer .footer li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .footer .icon img,
+footer .footer .icon svg {
+  filter: brightness(0) invert(1);
+}
+
+/* brand + social block */
+footer .footer .social-links-list {
+  margin-top: 16px;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 80px 32px;
+    gap: 32px;
+    align-items: start;
+  }
+
+  /* brand+social occupies the first (wider) column */
+  footer .footer > div > div:first-child {
+    grid-column: 1;
+  }
+
+  /* copyright (last section) spans full width below the columns */
+  footer .footer > div > div:last-child {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #333;
+    font-size: 12px;
+    color: var(--text-secondary-color);
   }
 }
