@@ -1,0 +1,21 @@
+/* Spec block — renders a two-column spec/detail table.
+   The block's decorate() builds a native <table>, so the global table styling
+   in styles.css (two-column layout, bold labels, row dividers) applies.
+   This file scopes a few block-specific tweaks and, by existing, prevents the
+   EDS block loader's 404 on spec.css. */
+
+.spec table {
+  margin: 24px 0;
+}
+
+/* The label column already carries <strong>; ensure it reads as the label. */
+.spec td:first-child {
+  width: 30%;
+  white-space: nowrap;
+}
+
+@media (width < 600px) {
+  .spec td:first-child {
+    white-space: normal;
+  }
+}
