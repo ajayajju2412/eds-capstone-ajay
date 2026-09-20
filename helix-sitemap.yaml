@@ -2,4 +2,4 @@ sitemaps:
   default:
     source: /pages-index.json
     destination: /sitemap.xml
-    lastmod: YYYY-MM-DD
+    origin: https://main--eds-capstone-ajay--ajayajju2412.aem.live
