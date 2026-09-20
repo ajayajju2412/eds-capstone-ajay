@@ -105,6 +105,13 @@ h1 {
   letter-spacing: -0.02em;
 }
 
+/* Listing/FAQ/landing templates use a larger H1 than homepage/article pages */
+@media (width >= 900px) {
+  body.large-h1 h1 {
+    font-size: 56px;
+  }
+}
+
 h2 {
   font-size: var(--heading-font-size-xl);
   line-height: 1.1;
@@ -528,4 +535,19 @@ body.blog-article main > .section:first-of-type > div > p:last-of-type {
   body.blog-article main > .section:first-of-type {
     padding: 128px 0;
   }
+}
+
+/* ===========================================================================
+   FAQ page (body.faq-page — set by scripts.js for /faq)
+   Contact block labels (Email/Phone/Address) read as small eyebrows,
+   not full headings.
+   =========================================================================== */
+
+body.faq-page .columns h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-secondary-color);
 }
