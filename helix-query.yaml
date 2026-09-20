@@ -23,3 +23,28 @@ indices:
       path:
         select: none
         value: path
+  pages:
+    include:
+      - /
+      - /fashion-trends-of-the-season
+      - /fashion-trends-young-adults
+      - /blog
+      - /case-studies
+      - /fashion-insights
+      - /faq
+      - /fashion-trends-young-adults-casual-sport
+      - /blog/**
+    target: /pages-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(lastModified, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      path:
+        select: none
+        value: path

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://main--eds-capstone-ajay--ajayajju2412.aem.live/sitemap.xml
