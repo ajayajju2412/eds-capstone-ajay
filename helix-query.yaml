@@ -6,8 +6,8 @@ indices:
     target: /query-index.json
     properties:
       title:
-        select: head > meta[property="og:title"]
-        value: attribute(el, "content")
+        select: main h1
+        value: textContent(el)
       description:
         select: head > meta[name="description"]
         value: attribute(el, "content")

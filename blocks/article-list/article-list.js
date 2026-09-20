@@ -54,6 +54,7 @@ export default async function decorate(block) {
   const cfg = readBlockConfig(block);
   const pathPrefix = cfg['path-prefix'] || '/blog/';
   const pageSize = parseInt(cfg.limit, 10) || 12;
+  const exclude = cfg.exclude ? cfg.exclude.split(',').map((p) => p.trim()) : [];
 
   block.textContent = '';
 
@@ -77,7 +78,7 @@ export default async function decorate(block) {
     }
     const json = await resp.json();
     json.data
-      .filter((entry) => entry.path.startsWith(pathPrefix))
+      .filter((entry) => entry.path.startsWith(pathPrefix) && !exclude.includes(entry.path))
       .forEach((entry) => ul.append(renderCard(entry)));
     offset += json.data.length;
     if (offset >= json.total || json.data.length === 0) {

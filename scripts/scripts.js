@@ -168,6 +168,14 @@ async function loadEager(doc) {
     if (window.location.pathname.startsWith('/blog/')) {
       document.body.classList.add('blog-article');
     }
+    // Listing/FAQ/landing templates use a larger H1 than the homepage/article scale
+    const largeH1Paths = ['/blog', '/case-studies', '/fashion-insights', '/faq', '/fashion-trends-young-adults-casual-sport'];
+    if (largeH1Paths.includes(window.location.pathname)) {
+      document.body.classList.add('large-h1');
+    }
+    if (window.location.pathname === '/faq') {
+      document.body.classList.add('faq-page');
+    }
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
